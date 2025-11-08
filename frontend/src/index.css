@@ -1,0 +1,194 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html {
+  overflow-x: hidden;
+  /* Removed smooth scroll to prevent shaking */
+  /* Prevent layout shifts */
+  -webkit-transform: translateZ(0);
+  transform: translateZ(0);
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  /* Prevent layout shift from scrollbar */
+  width: 100%;
+  position: relative;
+  /* Improve scroll performance */
+  -webkit-transform: translateZ(0);
+  transform: translateZ(0);
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+}
+
+@keyframes slide-in {
+  from {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+.animate-slide-in {
+  animation: slide-in 0.3s ease-out;
+}
+
+/* Mobile responsive utilities */
+@media (max-width: 640px) {
+  /* Table responsive padding */
+  table th,
+  table td {
+    padding-left: 0.5rem !important;
+    padding-right: 0.5rem !important;
+    padding-top: 0.5rem !important;
+    padding-bottom: 0.5rem !important;
+    font-size: 0.75rem !important;
+  }
+  
+  /* Table headers smaller on mobile */
+  table th {
+    font-size: 0.7rem !important;
+    font-weight: 600 !important;
+  }
+  
+  /* Ensure modals are full width on mobile */
+  .modal-content {
+    max-width: 95vw !important;
+    margin: 0.5rem !important;
+    padding: 1rem !important;
+  }
+  
+  /* Better touch targets for buttons */
+  button {
+    min-height: 44px;
+    min-width: 44px;
+  }
+  
+  /* Form inputs better on mobile */
+  input, select, textarea {
+    font-size: 16px !important; /* Prevents zoom on iOS */
+    min-height: 44px;
+  }
+  
+  /* Cards and containers */
+  .card, .bg-white {
+    padding: 1rem !important;
+  }
+  
+  /* Better spacing */
+  .space-y-6 > * + * {
+    margin-top: 1rem !important;
+  }
+  
+  /* Grid improvements */
+  .grid {
+    gap: 0.75rem !important;
+  }
+  
+  /* Ensure horizontal scrolling for tables */
+  .overflow-x-auto {
+    -webkit-overflow-scrolling: touch;
+  }
+  
+  /* Table container wrapper */
+  .table-container {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    width: 100%;
+    /* Removed negative margin to prevent layout shifts */
+    padding: 0;
+    /* Improve scroll performance */
+    -webkit-transform: translateZ(0);
+    transform: translateZ(0);
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
+  }
+  
+  .table-container table {
+    min-width: 640px;
+  }
+  
+  /* Better text wrapping */
+  * {
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+  }
+  
+  /* Improve button spacing on mobile */
+  .space-x-2 > * + * {
+    margin-left: 0.5rem;
+  }
+  
+  .space-x-3 > * + * {
+    margin-left: 0.75rem;
+  }
+  
+  /* Better form spacing */
+  .space-y-4 > * + * {
+    margin-top: 1rem;
+  }
+  
+  .space-y-6 > * + * {
+    margin-top: 1.5rem;
+  }
+}
+
+/* Tablet responsive */
+@media (min-width: 641px) and (max-width: 1024px) {
+  table th,
+  table td {
+    padding-left: 0.75rem !important;
+    padding-right: 0.75rem !important;
+    font-size: 0.875rem !important;
+  }
+  
+  input, select, textarea {
+    font-size: 16px !important;
+  }
+}
+
+/* Footer optimizations to prevent layout shifts */
+footer {
+  -webkit-transform: translateZ(0);
+  transform: translateZ(0);
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+  will-change: transform;
+  /* Prevent layout shifts when footer appears */
+  position: relative;
+  z-index: 1;
+}
+
+/* Prevent header shaking during scroll */
+header {
+  contain: layout style paint;
+  transform: translateZ(0);
+  -webkit-transform: translateZ(0);
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+  /* Prevent transform transitions that cause shaking */
+  transition-property: background-color, color, opacity, box-shadow !important;
+  transition-duration: 0.2s !important;
+  transition-timing-function: ease !important;
+}
+
+/* Additional optimizations for smooth rendering */
+
+/* Prevent layout shifts from images */
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
