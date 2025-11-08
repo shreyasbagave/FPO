@@ -63,7 +63,7 @@ const ConnectionTest = () => {
               <h4 className="font-semibold mb-2">Troubleshooting:</h4>
               <ul className="list-disc list-inside text-sm space-y-1">
                 <li>Make sure backend server is running: <code className="bg-gray-100 px-1 rounded">npm run dev</code> in server folder</li>
-                <li>Check if backend is on port 5000: <code className="bg-gray-100 px-1 rounded">http://localhost:5000/api/health</code></li>
+                <li>Check if backend is accessible: <code className="bg-gray-100 px-1 rounded">https://fpob.onrender.com/api/health</code></li>
                 <li>Verify CORS is enabled in backend</li>
                 <li>Check browser console for detailed errors</li>
               </ul>
